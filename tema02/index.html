@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Título de la página</title>
+  <!-- CSS de Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Iconos de Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Tu CSS, SIEMPRE después del de Bootstrap -->
+  <link href="css/estilos.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Aquí va tu contenido -->
+  <!--NavBar-->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">David Martín Martí</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Mostrar menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Servicios</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Más
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Opción 1</a></li>
+              <li><a class="dropdown-item" href="#">Opción 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--Tabla-->
+  <div class="container mt-4">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-bordered align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Explorador</th>
+            <th scope="col">Empresa desarrolladora</th>
+            <th scope="col">Motor de renderizado</th>
+            <th scope="col">Motor de JavaScript</th>
+            <th scope="col">Basado en Chromium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Firefox</th>
+            <td>Mozilla</td>
+            <td>Gecko</td>
+            <td>SpiderMonkey</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <th scope="row">Safari</th>
+            <td>Apple</td>
+            <td>WebKit</td>
+            <td>JavaScriptCore</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <th scope="row">Chrome</th>
+            <td>Google</td>
+            <td>Blink</td>
+            <td>V8</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <th scope="row">Edge</th>
+            <td>Microsoft</td>
+            <td>Blink</td>
+            <td>V8</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <th scope="row">Opera</th>
+            <td>Opera</td>
+            <td>Blink</td>
+            <td>V8</td>
+            <td>Si</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="col-12 col-md-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">¿Por qué casi todos los navegadores comparten motor, cuáles se quedan fuera y qué supone eso para quien desarrolla una web?</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Ejemplo de CanIUse.com</h5>
+          <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Un cliente encarga una web, ¿En qué navegadores la probarías primero y por qué? Ten en cuenta el móvil</h5>
+          <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JS de Bootstrap (navbar que se pliega, modales, dropdowns...). Al final del body -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

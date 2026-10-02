@@ -3,20 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Título de la página</title>
+    <title>Interacción | David Martín Martí</title>
 
     <!-- CSS de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Iconos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
-    <!-- Tu CSS, SIEMPRE después del de Bootstrap -->
-    <link href="css/estilos.css" rel="stylesheet">
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
     <!-- Aquí va tu contenido -->
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">David Martín Martí</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Mostrar menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Interacción</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+
+                <!-- Card con tres botones -->
+                <div class="card text-center mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Panel de funciones</h5>
+                        <p class="card-text">Pulsa un botón para ejecutar su función.</p>
+                        <div class="d-flex flex-wrap justify-content-center gap-2">
+                            <button type="button" class="btn btn-success" onclick="saludar()">Saludar</button>
+                            <button type="button" class="btn btn-danger" onclick="simularError()">Simular un error</button>
+                            <button type="button" class="btn btn-info" onclick="navegador()">¿Qué navegador soy?</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acordeón de tres elementos -->
+                <div class="accordion" id="acordeonFunciones">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button id="saludar" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#coll1" aria-expanded="true" aria-controls="coll1">
+                                Saludar
+                            </button>
+                        </h2>
+                        <div id="coll1" class="accordion-collapse collapse show" data-bs-parent="#acordeonFunciones">
+                            <div class="accordion-body">
+                                saludar(): Muestra una ventana emergente (alert) con el mensaje "Hola, soy David Martín Martí" y, después de que la cierres, escribe en la consola del navegador el texto "Saludo realizado". Sirve como una función de presentación sencilla.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button id="error" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#coll2" aria-expanded="false" aria-controls="coll2">
+                                Simular un error
+                            </button>
+                        </h2>
+                        <div id="coll2" class="accordion-collapse collapse" data-bs-parent="#acordeonFunciones">
+                            <div class="accordion-body">
+                                simularError(): No muestra nada en la página, solo escribe en la consola el mensaje "ERROR FATIDICO" usando console.error, que aparece en rojo como si fuera un error real. No rompe nada ni detiene el programa, solo simula un fallo para ver cómo se muestra.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button id="navegador" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#coll3" aria-expanded="false" aria-controls="coll3">
+                                ¿Qué navegador soy?
+                            </button>
+                        </h2>
+                        <div id="coll3" class="accordion-collapse collapse" data-bs-parent="#acordeonFunciones">
+                            <div class="accordion-body">
+                                navegador(): Muestra en una ventana emergente el userAgent, una cadena de texto con información sobre el navegador y el sistema operativo que estás usando (por ejemplo, Edge, Chrome, Windows...). Además, escribe en la consola una advertencia en amarillo con console.warn, avisándote de que estás usando el navegador mostrado.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
 
     <!-- JS de Bootstrap (navbar que se pliega, modales, dropdowns...). Al final del body -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

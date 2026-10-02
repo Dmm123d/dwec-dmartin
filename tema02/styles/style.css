@@ -1,0 +1,14 @@
+#saludar:not(.collapsed) {
+    color: white !important;
+    background-color: #198754 !important;
+}
+
+#navegador:not(.collapsed) {
+    color: black !important;
+    background-color: #0dcaf0 !important;
+}
+
+#error:not(.collapsed) {
+    color: white !important;
+    background-color: #dc3545 !important;
+}

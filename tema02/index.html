@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Título de la página</title>
+  <title>Inicio | David Martín Martí</title>
   <!-- CSS de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Iconos de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
-  <!-- Tu CSS, SIEMPRE después del de Bootstrap -->
-  <link href="css/estilos.css" rel="stylesheet">
 </head>
 <body>
 
@@ -29,20 +27,7 @@
             <a class="nav-link active" href="#">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Servicios</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Más
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Opción 1</a></li>
-              <li><a class="dropdown-item" href="#">Opción 2</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
+            <a class="nav-link" href="interaccion.html">Interacción</a>
           </li>
         </ul>
       </div>
@@ -103,30 +88,36 @@
     </div>
   </div>
 
+  <!--Cards-->
   <div class="row g-4 mt-2">
+    <!--Card Apartado A.2-->
     <div class="col-12 col-md-4">
       <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">¿Por qué casi todos los navegadores comparten motor, cuáles se quedan fuera y qué supone eso para quien desarrolla una web?</h5>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
+          <p class="card-text">La mayoría de navegadores comparten motor porque desarrollar y mantener uno desde cero es muy complejo y costoso. Actualmente, muchos utilizan Chromium y su motor Blink, como Google Chrome, Microsoft Edge, Opera o Brave, mientras que los principales que se salen de esta tendencia son Firefox, con Gecko, y Safari, con WebKit. Para quien desarrolla una web, esto facilita la compatibilidad con la mayoría de navegadores al existir un motor dominante, pero también obliga a probar la página en distintos motores, ya que pueden interpretar algunas funciones de HTML, CSS o JavaScript de forma diferente. Por ello, es importante utilizar estándares web y comprobar la compatibilidad, especialmente con Firefox y Safari.</p>
         </div>
       </div>
     </div>
 
+    <!--Card Apartado A.3-->
     <div class="col-12 col-md-4">
       <div class="card h-100">
         <div class="card-body">
-          <h5 class="card-title">Ejemplo de CanIUse.com</h5>
-          <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          <h5 class="card-title">Ejemplo de CanIUse.com: Backdrop Filter CSS</h5>
+          <p class="card-text">Un ejemplo real es backdrop-filter de CSS, que permite aplicar efectos como desenfoque al contenido que hay detrás de un elemento. Según Can I Use, no está soportado en Opera Mini, mientras que sí lo está en navegadores actuales como Chrome, Edge, Firefox y Safari; por ejemplo, Firefox lo soporta desde la versión 103.</p>
+          <p class="card-text">Enlace: <a href="https://caniuse.com/css-backdrop-filter" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Can I Use - CSS Backdrop Filter</a></p>
+          <p class="card-text">Fecha de consulta: 2 de octubre de 2026.</p>
         </div>
       </div>
     </div>
 
+    <!--Card Apartado A.4-->
     <div class="col-12 col-md-4">
       <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">Un cliente encarga una web, ¿En qué navegadores la probarías primero y por qué? Ten en cuenta el móvil</h5>
-          <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+          <p class="card-text">Probaría primero la web en Google Chrome y Microsoft Edge en ordenador, ya que utilizan Chromium y son navegadores muy extendidos. En móvil, probaría principalmente Chrome en Android y Safari en iPhone, porque son los navegadores más habituales en sus respectivos sistemas. Después comprobaría Firefox y, si el público objetivo lo requiere, otros navegadores. Así se cubren los principales motores (Blink, WebKit y Gecko) y se pueden detectar problemas de compatibilidad en diferentes dispositivos y tamaños de pantalla.</p>
         </div>
       </div>
     </div>

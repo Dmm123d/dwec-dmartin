@@ -24,16 +24,13 @@ function ejercicio1() {
   let noDefinido;   // undefined
   const bigEntero = 10n;    // bigint
 
+  // Console.log de cada variable y su typeof
   console.log("edad =", edad, "→", typeof edad);
   console.log("nombre =", nombre, "→", typeof nombre);
   console.log("bool =", bool, "→", typeof bool);
   console.log("nulo =", nulo, "→", typeof nulo);
   console.log("noDefinido =", noDefinido, "→", typeof noDefinido);
   console.log("bigEntero =", bigEntero, "→", typeof bigEntero);
-
-  noDefinido = "noDefinido";
-  console.log("Variable noDefinido actualizada:");
-  console.log("noDefinido =", noDefinido, "→", typeof noDefinido);
 
   // TODO: declara una variable de cada tipo que falta: string, boolean, null, undefined y bigint (como 10n).
   //       const si no va a cambiar; let para al menos una a la que des valor más tarde.
@@ -48,8 +45,23 @@ function ejercicio2() {
   console.log("--- Ejercicio 2 · Conversiones explícitas ---");
 
   // Ejemplo: una conversión, tu predicción y el resultado con su tipo
-  const a = String(123);   // espero [tu predicción]
+  const a = String(123);   // espero string "123"
+  const b = Number("123");   // espero number 123
+  const c = Number("12abc");   // espero [tu predicción]
+  const d = Number("");   // espero number 0
+  const e = Number(true);   // espero number 1
+  const f = Boolean(0);   // espero boolean false
+  const g = Boolean("texto");   // espero boolean true
+  const h = Boolean("");   // espero boolean false
+
   console.log("String(123) →", a, typeof a);
+  console.log("Number(\"123\") →", b, typeof b);
+  console.log("Number(\"12abc\") →", c, typeof c);
+  console.log("Number(\"\") →", d, typeof d);
+  console.log("Number(true) →", e, typeof e);
+  console.log("Boolean(0) →", f, typeof f);
+  console.log("String(\"texto\") →", g, typeof g);
+  console.log("Boolean(\"\") →", h, typeof h);
 
   // TODO: el resto de conversiones obligatorias, cada una con su «espero …»:
   //       Number("123"), Number("12abc"), Number(""), Number(true),

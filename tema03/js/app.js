@@ -45,14 +45,14 @@ function ejercicio2() {
   console.log("--- Ejercicio 2 · Conversiones explícitas ---");
 
   // Ejemplo: una conversión, tu predicción y el resultado con su tipo
-  const a = String(123);   // espero string "123"
-  const b = Number("123");   // espero number 123
-  const c = Number("12abc");   // espero [tu predicción]
-  const d = Number("");   // espero number 0
-  const e = Number(true);   // espero number 1
-  const f = Boolean(0);   // espero boolean false
-  const g = Boolean("texto");   // espero boolean true
-  const h = Boolean("");   // espero boolean false
+  const a = String(123);   // espero "123" string
+  const b = Number("123");   // espero 123 number
+  const c = Number("12abc");   // espero 12 number
+  const d = Number("");   // espero 0 number
+  const e = Number(true);   // espero 1 number
+  const f = Boolean(0);   // espero false boolean
+  const g = Boolean("texto");   // espero true boolean
+  const h = Boolean("");   // espero false boolean
 
   console.log("String(123) →", a, typeof a);
   console.log("Number(\"123\") →", b, typeof b);
@@ -75,15 +75,24 @@ function ejercicio3() {
   console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
 
   // Ejemplo: una expresión que mezcla tipos
-  console.log('"5" - 2 →', "5" - 2);   // espero [tu predicción]
+  console.log('"5" - 2 →', "5" - 2);   // espero 3
 
   // TODO: cinco expresiones más que mezclen tipos (al menos dos inventadas por ti), cada una con su «espero …».
+  console.log('"5" + 2 →', "5" + 2);   // espero "52"
+  console.log('0 == "" →', 0 == "");   // espero true
+  console.log('null == undefined →', null == undefined);   // espero false
+  console.log('true == "true" →', true == "true");   // espero true
+  console.log('NaN === "abc" →', NaN === "abc");   // espero false
 
   // Ejemplo: la misma pareja comparada con == y con ===
-  console.log('5 == "5" →', 5 == "5");     // espero [tu predicción]
-  console.log('5 === "5" →', 5 === "5");   // espero [tu predicción]
+  console.log('5 == "5" →', 5 == "5");     // espero true
+  console.log('5 === "5" →', 5 === "5");   // espero false
 
   // TODO: haz lo mismo con 0 y false, y con null y undefined.
+  console.log('0 == false →', 0 == false);     // espero true
+  console.log('0 === false →', 0 === false);   // espero false
+  console.log('null == undefined →', null == undefined);     // espero false
+  console.log('null === undefined →', null === undefined);   // espero false
 }
 
 
@@ -92,18 +101,25 @@ function ejercicio4() {
   console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
 
   // Tus datos, con const
-  const nombre = "[Tu nombre]";
+  const nombre = "David Martín Martí";
   // TODO: ciclo, curso y una afición, también con const.
+  const ciclo = "Desarrollo de Aplicaciones Web";
+  const curso = "2ºCurso";
+  const aficion = "jugar videojuegos";
 
   // Un dato que cambia, con let
   // TODO: por ejemplo, las horas que has estudiado esta semana. Después súmale algo con +=.
+  let horasEstudiadas = 0;
+  horasEstudiadas += 5;
 
   // La ficha con plantilla de cadena: backticks (`) y ${ }
-  const ficha = `Soy ${nombre}.`;
+  const ficha = `Soy ${nombre} del ${curso} de ${ciclo} y mi afición es ${aficion}. He estudiado esta semana ${horasEstudiadas} horas`;
   // TODO: completa la ficha con todos tus datos y muéstrala con alert() y en la consola.
-
+  alert(ficha);
   // TODO: escribe la misma ficha concatenando con + en una constante fichaConMas y muéstrala en la consola.
+  const fichaConcatenada = "Soy " + nombre + " del " + curso + " de " + ciclo + " y mi afición es " + aficion + ". He estudiado esta semana " + horasEstudiadas + " horas";
   // TODO: compara las dos con === y muestra el resultado en la consola: tiene que salir true.
-
+  alert(fichaConcatenada);
+  console.log("ficha === fichaConcatenada →", ficha === fichaConcatenada);
   // Recuerda: el error de dar otro valor a una const se provoca en la consola del navegador, no aquí.
 }

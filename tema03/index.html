@@ -104,7 +104,7 @@
         </div>
 
         <!-- 4) Tu explicación -->
-        <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
+        <p class="small mb-0"><strong>El caso de null:</strong> Devuelve <code>object</code> por un error histórico en el código binario original de JavaScript. No se corrige para evitar romper millones de páginas web antiguas que dependen de ese comportamiento, </p>
       </div>
 
       <!-- 5) El botón. onclick="ejercicio1()" hace que, al pulsarlo, se ejecute la función ejercicio1() de js/app.js.
@@ -180,12 +180,9 @@
             </tbody>
           </table>
         </div>
-
-        <!-- 4) Tu explicación -->
-        <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
       </div>
 
-      <!-- 5) El botón. onclick="ejercicio2()" hace que, al pulsarlo, se ejecute la función ejercicio2() de js/app.js.
+      <!-- 4) El botón. onclick="ejercicio2()" hace que, al pulsarlo, se ejecute la función ejercicio2() de js/app.js.
               Cómo funciona lo veremos más adelante, con los eventos. De momento, cópialo tal cual y cambia solo el número. -->
       <div class="card-footer">
         <button type="button" class="btn btn-primary" onclick="ejercicio2()">
@@ -208,15 +205,30 @@
 
       <div class="card-body">
 
-        <!-- 2) El código: cuando termines, copia aquí tu función ejercicio1() de js/app.js.
+        <!-- 2) El código: cuando termines, copia aquí tu función ejercicio3() de js/app.js.
                 Si tu código lleva los signos < o >, escríbelos como &lt; y &gt; -->
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio3() {
   console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
 
-  const edad = 20;   // number
-  console.log("edad =", edad, "→", typeof edad);
+  // Ejemplo: una expresión que mezcla tipos
+  console.log('"5" - 2 →', "5" - 2);   // espero 3
 
-  [aquí va el resto de tu código]
+  // TODO: cinco expresiones más que mezclen tipos (al menos dos inventadas por ti), cada una con su «espero …».
+  console.log('"5" + 2 →', "5" + 2);   // espero "52"
+  console.log('0 == "" →', 0 == "");   // espero true
+  console.log('null == undefined →', null == undefined);   // espero false
+  console.log('true == "true" →', true == "true");   // espero true
+  console.log('NaN === "abc" →', NaN === "abc");   // espero false
+
+  // Ejemplo: la misma pareja comparada con == y con ===
+  console.log('5 == "5" →', 5 == "5");     // espero true
+  console.log('5 === "5" →', 5 === "5");   // espero false
+
+  // TODO: haz lo mismo con 0 y false, y con null y undefined.
+  console.log('0 == false →', 0 == false);     // espero true
+  console.log('0 === false →', 0 === false);   // espero false
+  console.log('null == undefined →', null == undefined);     // espero false
+  console.log('null === undefined →', null === undefined);   // espero false
 }</code></pre>
 
         <!-- 3) La tabla «Espero / Sale», rellenada a mano.
@@ -225,17 +237,27 @@
         <div class="table-responsive">
           <table class="table table-sm table-striped align-middle mb-2">
             <thead class="table-primary">
-              <tr><th scope="col">Variable</th><th scope="col">Valor</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+              <tr><th scope="col">Expresión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
-              <tr><th scope="row">[variable]</th><td><code>[valor]</code></td><td><code>[lo que esperas]</code></td><td><code>[lo que sale]</code></td></tr>
+              <tr><th scope="row">"5" - 2</th><td><code>3</code></td><td><code>3</code></td></tr>
+              <tr><th scope="row">"5" + 2</th><td><code>"52"</code></td><td><code>"52"</code></td></tr>
+              <tr><th scope="row">0 == ""</th><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row">null == undefined</th><td><code>false</code></td><td><code>true<span class="badge text-bg-danger">Fallé</span></code></td></tr>
+              <tr><th scope="row">true == "true"</th><td><code>true</code></td><td><code>false<span class="badge text-bg-danger">Fallé</span></code></td></tr>
+              <tr><th scope="row">NaN === "abc"</th><td><code>false</code></td><td><code>false</code></td></tr>
+              <tr><th scope="row">5 == "5"</th><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row">5 === "5"</th><td><code>false</code></td><td><code>false</code></td></tr>
+              <tr><th scope="row">0 == false</th><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row">0 === false</th><td><code>false</code></td><td><code>false</code></td></tr>
+              <tr><th scope="row">null == undefined</th><td><code>false</code></td><td><code>true<span class="badge text-bg-danger">Fallé</span></code></td></tr>
+              <tr><th scope="row">null === undefined</th><td><code>false</code></td><td><code>false</code></td></tr>
             </tbody>
           </table>
         </div>
 
         <!-- 4) Tu explicación -->
-        <p class="small mb-0"><strong>El caso de null:</strong> [explica en una línea qué pasa con typeof null]</p>
+        <p class="small mb-0"><strong>¿Cuando manda string y cuando manda number?:</strong> En caso de suma entre <code>number</code> y <code>string</code> siempre devuelve cadena, produciéndose una concatenación, y en caso de resta, devuelve el valor de la operación en <code>number</code>.</p>
       </div>
 
       <!-- 5) El botón. onclick="ejercicio3()" hace que, al pulsarlo, se ejecute la función ejercicio3() de js/app.js.
@@ -266,10 +288,28 @@
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio4() {
   console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
 
-  const edad = 20;   // number
-  console.log("edad =", edad, "→", typeof edad);
+  // Tus datos, con const
+  const nombre = "David Martín Martí";
+  // TODO: ciclo, curso y una afición, también con const.
+  const ciclo = "Desarrollo de Aplicaciones Web";
+  const curso = "2ºCurso";
+  const aficion = "jugar videojuegos";
 
-  [aquí va el resto de tu código]
+  // Un dato que cambia, con let
+  // TODO: por ejemplo, las horas que has estudiado esta semana. Después súmale algo con +=.
+  let horasEstudiadas = 0;
+  horasEstudiadas += 5;
+
+  // La ficha con plantilla de cadena: backticks (`) y ${ }
+  const ficha = `Soy ${nombre} del ${curso} de ${ciclo} y mi afición es ${aficion}. He estudiado esta semana ${horasEstudiadas} horas`;
+  // TODO: completa la ficha con todos tus datos y muéstrala con alert() y en la consola.
+  alert(ficha);
+  // TODO: escribe la misma ficha concatenando con + en una constante fichaConMas y muéstrala en la consola.
+  const fichaConcatenada = "Soy " + nombre + " del " + curso + " de " + ciclo + " y mi afición es " + aficion + ". He estudiado esta semana " + horasEstudiadas + " horas";
+  // TODO: compara las dos con === y muestra el resultado en la consola: tiene que salir true.
+  alert(fichaConcatenada);
+  console.log("ficha === fichaConcatenada →", ficha === fichaConcatenada);
+  // Recuerda: el error de dar otro valor a una const se provoca en la consola del navegador, no aquí.
 }</code></pre>
 
         <!-- 3) La tabla «Espero / Sale», rellenada a mano.

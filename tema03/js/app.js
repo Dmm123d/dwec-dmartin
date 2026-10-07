@@ -116,10 +116,12 @@ function ejercicio4() {
   const ficha = `Soy ${nombre} del ${curso} de ${ciclo} y mi afición es ${aficion}. He estudiado esta semana ${horasEstudiadas} horas`;
   // TODO: completa la ficha con todos tus datos y muéstrala con alert() y en la consola.
   alert(ficha);
+  console.log(ficha);
   // TODO: escribe la misma ficha concatenando con + en una constante fichaConMas y muéstrala en la consola.
   const fichaConcatenada = "Soy " + nombre + " del " + curso + " de " + ciclo + " y mi afición es " + aficion + ". He estudiado esta semana " + horasEstudiadas + " horas";
   // TODO: compara las dos con === y muestra el resultado en la consola: tiene que salir true.
   alert(fichaConcatenada);
+  console.log(fichaConcatenada);
   console.log("ficha === fichaConcatenada →", ficha === fichaConcatenada);
   // Recuerda: el error de dar otro valor a una const se provoca en la consola del navegador, no aquí.
 }

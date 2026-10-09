@@ -9,5 +9,5 @@ function simularError() {
 
 function navegador() {
     alert(navigator.userAgent);
-    console.warn("Cuidado: Estas usando el navegador mostrado!!");
+    console.log(navigator.userAgent);
 }

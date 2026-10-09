@@ -76,11 +76,6 @@
   console.log("nulo =", nulo, "→", typeof nulo);
   console.log("noDefinido =", noDefinido, "→", typeof noDefinido);
   console.log("bigEntero =", bigEntero, "→", typeof bigEntero);
-
-  // TODO: declara una variable de cada tipo que falta: string, boolean, null, undefined y bigint (como 10n).
-  //       const si no va a cambiar; let para al menos una a la que des valor más tarde.
-  // TODO: muestra en la consola el valor y el typeof de cada una, como en el ejemplo.
-  // TODO: da valor a tu variable let y vuelve a mostrar su typeof.
 }</code></pre>
 
         <!-- 3) La tabla «Variable / Valor / Espero / Sale» -->
@@ -140,6 +135,7 @@
   const g = Boolean("texto");   // espero true boolean
   const h = Boolean("");   // espero false boolean
 
+  // Console.log correspondiente a cada variable
   console.log("String(123) →", a, typeof a);
   console.log("Number(\"123\") →", b, typeof b);
   console.log("Number(\"12abc\") →", c, typeof c);
@@ -148,11 +144,6 @@
   console.log("Boolean(0) →", f, typeof f);
   console.log("String(\"texto\") →", g, typeof g);
   console.log("Boolean(\"\") →", h, typeof h);
-
-  // TODO: el resto de conversiones obligatorias, cada una con su «espero …»:
-  //       Number("123"), Number("12abc"), Number(""), Number(true),
-  //       Boolean(0), Boolean("texto") y Boolean("").
-  // TODO: muestra en la consola el resultado y el typeof de cada una.
 }</code></pre>
 
         <!-- 3) La tabla «Variable / Valor / Espero / Sale» -->
@@ -204,18 +195,16 @@
   // Ejemplo: una expresión que mezcla tipos
   console.log('"5" - 2 →', "5" - 2);   // espero 3
 
-  // TODO: cinco expresiones más que mezclen tipos (al menos dos inventadas por ti), cada una con su «espero …».
+  // Console.log de las operaciones y sus resultados
   console.log('"5" + 2 →', "5" + 2);   // espero "52"
   console.log('0 == "" →', 0 == "");   // espero true
   console.log('null == undefined →', null == undefined);   // espero false
   console.log('true == "true" →', true == "true");   // espero true
   console.log('NaN === "abc" →', NaN === "abc");   // espero false
 
-  // Ejemplo: la misma pareja comparada con == y con ===
+  // Console.log de operaciones con == y ===
   console.log('5 == "5" →', 5 == "5");     // espero true
   console.log('5 === "5" →', 5 === "5");   // espero false
-
-  // TODO: haz lo mismo con 0 y false, y con null y undefined.
   console.log('0 == false →', 0 == false);     // espero true
   console.log('0 === false →', 0 === false);   // espero false
   console.log('null == undefined →', null == undefined);     // espero false
@@ -275,30 +264,32 @@
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio4() {
   console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
 
-  // Tus datos, con const
+  // Constantes declaradas
   const nombre = "David Martín Martí";
-  // TODO: ciclo, curso y una afición, también con const.
   const ciclo = "Desarrollo de Aplicaciones Web";
   const curso = "2ºCurso";
   const aficion = "jugar videojuegos";
 
   // Un dato que cambia, con let
-  // TODO: por ejemplo, las horas que has estudiado esta semana. Después súmale algo con +=.
   let horasEstudiadas = 0;
   horasEstudiadas += 5;
 
   // La ficha con plantilla de cadena: backticks (`) y ${ }
   const ficha = `Soy ${nombre} del ${curso} de ${ciclo} y mi afición es ${aficion}. He estudiado esta semana ${horasEstudiadas} horas`;
-  // TODO: completa la ficha con todos tus datos y muéstrala con alert() y en la consola.
+  
+  // Ficha mostrada con alert y console.log
   alert(ficha);
   console.log(ficha);
-  // TODO: escribe la misma ficha concatenando con + en una constante fichaConMas y muéstrala en la consola.
+
+  // Misma ficha pero concatenada con +
   const fichaConcatenada = "Soy " + nombre + " del " + curso + " de " + ciclo + " y mi afición es " + aficion + ". He estudiado esta semana " + horasEstudiadas + " horas";
-  // TODO: compara las dos con === y muestra el resultado en la consola: tiene que salir true.
+  
+  // Ficha Concatenada mostrada con alert y console.log
   alert(fichaConcatenada);
   console.log(fichaConcatenada);
+
+  // Comparación de ambas fichas con ===
   console.log("ficha === fichaConcatenada →", ficha === fichaConcatenada);
-  // Recuerda: el error de dar otro valor a una const se provoca en la consola del navegador, no aquí.
 }</code></pre>
 
         <!-- 3) Alert explicando el error al cambiar constante en F12 -->

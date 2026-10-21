@@ -12,14 +12,6 @@
 </head>
 <body>
 
-  <!--
-    PLANTILLA DE LA TAREA 4
-    · Solo trae lo imprescindible para empezar. La maquetación con Bootstrap es cosa tuya y cuenta en la nota:
-      rejilla (row y col-*) que se adapte al móvil, cards, botones con color, grupos de botones, iconos...
-    · Todo lo que va entre [corchetes] es un hueco: sustitúyelo por lo tuyo.
-    · Tu JavaScript va en js/app.js. El archivo js/ayudas.js NO se toca.
-  -->
-
   <!-- NAVBAR con tu nombre -->
   <nav class="navbar bg-primary" data-bs-theme="dark">
     <div class="container">
@@ -32,7 +24,7 @@
   <header class="bg-body-tertiary border-bottom py-4 mb-4">
     <div class="container">
       <h1 class="h2 mb-1">Calculadora y bucles</h1>
-      <p class="lead mb-0 text-body-secondary">[Una frase tuya sobre lo que hace la página]</p>
+      <p class="lead mb-0 text-body-secondary">Una calculadora que aparte de añadir operadores aritmeticos comunes, añade funciones de comparaciones y bucles.</p>
     </div>
   </header>
 
@@ -63,7 +55,6 @@
                 <div class="card-header"><span class="badge text-bg-primary">1</span> Calculadora</div>
                 <div class="card-body pb-4">
                   <div class="row g-3">
-                    <!-- Cada botón llama con onclick a su función de js/app.js, como en la tarea 3 -->
                     <div class="col-6"><button type="button" class="btn btn-primary w-100" onclick="sumar()">Sumar</button></div>
                     <div class="col-6"><button type="button" class="btn btn-primary w-100" onclick="restar()">Restar</button></div>
                     <div class="col-6"><button type="button" class="btn btn-primary w-100" onclick="multiplicar()">Multiplicar</button></div>
@@ -78,12 +69,11 @@
             <!-- EJERCICIO 2 · Comparaciones -->
             <div class="carousel-item">
               <div class="card">
-                <div class="card-header"><span class="badge text-bg-primary">2</span> Comparaciones</div>
+                <div class="card-header"><span class="badge text-bg-info">2</span> Comparaciones</div>
                 <div class="card-body pt-4 pb-5">
                   <div class="d-grid gap-3">
-                    <!-- Cada botón llama con onclick a su función de js/app.js, como en la tarea 3 -->
-                    <button type="button" class="btn btn-primary" onclick="cualEsMayor()">¿Cuál es mayor?</button>
-                    <button type="button" class="btn btn-primary" onclick="parOImpar()">¿Par o impar?</button>
+                    <button type="button" class="btn btn-info" onclick="cualEsMayor()">¿Cuál es mayor?</button>
+                    <button type="button" class="btn btn-info" onclick="parOImpar()">¿Par o impar?</button>
                   </div>
                   <div class="form-text mt-2 lh-1">«¿Par o impar?» solo mira el número 1.</div>
                 </div>
@@ -94,15 +84,14 @@
             <div class="carousel-item">
               <div class="card">
                 <div class="card-header">
-                  <span class="badge text-bg-primary">3</span>
-                  <span class="badge text-bg-primary">4</span>
+                  <span class="badge text-bg-success">3</span>
+                  <span class="badge text-bg-success">4</span>
                   Bucles
                 </div>
                 <div class="card-body">
 
                   <p class="mb-2 small">Con texto</p>
                   <div class="btn-group w-100 mb-3" role="group" aria-label="Bucles con texto">
-                    <!-- Cada botón llama con onclick a su función de js/app.js, como en la tarea 3 -->
                     <button type="button" class="btn btn-success" onclick="bucleFor()">for</button>
                     <button type="button" class="btn btn-success" onclick="bucleWhile()">while</button>
                     <button type="button" class="btn btn-success" onclick="bucleDoWhile()">do…while</button>
@@ -110,11 +99,10 @@
 
                   <p class="mt-1 mb-2 small">
                     Con badges
-                    <span class="badge text-bg-primary">pares</span>
+                    <span class="badge text-bg-success">pares</span>
                     <span class="badge text-bg-secondary">impares</span>
                   </p>
                   <div class="btn-group w-100" role="group" aria-label="Bucles con badges">
-                    <!-- Cada botón llama con onclick a su función de js/app.js, como en la tarea 3 -->
                     <button type="button" class="btn btn-outline-success" onclick="badgesFor()">for</button>
                     <button type="button" class="btn btn-outline-success" onclick="badgesWhile()">while</button>
                     <button type="button" class="btn btn-outline-success" onclick="badgesDoWhile()">do…while</button>
@@ -138,8 +126,8 @@
       </div>
 
       <div class="col-12 col-lg-8">
-        <!-- RESULTADO. Aquí escriben mostrar(), anadirLinea() y anadirBadge(). No cambies el id -->
-        <section class="card mb-4 h-100">
+        <!-- RESULTADO -->
+        <section class="card h-100">
           <div class="card-header d-flex justify-content-between align-items-center">
             Resultado
             <button type="button" class="btn btn-outline-secondary btn-sm" onclick="limpiarSalida()">Borrar</button>

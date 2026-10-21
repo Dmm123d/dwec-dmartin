@@ -1,20 +1,6 @@
-/*
-  Tarea 4 · DWEC · David Martín Martí
-  Calculadora y bucles.
-
-  Cómo usar esta plantilla:
-  · Hay una función por botón. Cada una se ejecuta al pulsar su botón de index.html.
-  · sumar() está hecha: es el modelo. Escribe las demás donde pone TODO y, cuando termines, borra el TODO.
-  · Para leer las casillas y escribir el resultado usa las funciones de js/ayudas.js:
-      leerNumero("numero1"), mostrar(texto, color), anadirLinea(texto), anadirBadge(texto, color), limpiarSalida()
-  · Además de en la página, cada función deja su rastro en la consola con console.log().
-  · let y const, nunca var. Compara siempre con ===. Comillas rectas.
-*/
-
 console.log("app.js cargado");
 
 const MAXIMO_REPETICIONES = 20;   // para que un bucle no llene la página
-
 
 // ============================================================
 // Ejercicio 1 · Calculadora
@@ -22,13 +8,15 @@ const MAXIMO_REPETICIONES = 20;   // para que un bucle no llene la página
 
 // El modelo: lee los dos números, comprueba que están y opera
 function sumar() {
+  // Se leen los números de los inputs con la función leerNumero()
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
 
+  // Se comprueba que se han rellenado los inputs, y que son números
   if (Number.isNaN(n1) || Number.isNaN(n2)) {
     mostrar("Escribe los dos números antes de operar.", "danger");
     console.warn("Sumar: Falta algún número");
-  } else {
+  } else { // Si no hay error, se realiza la operación, se muestra en el resultado y en la consola.
     const resultado = n1 + n2;
     mostrar(`${n1} + ${n2} = ${resultado}`);
     console.log(`Sumar: ${n1} + ${n2} = ${resultado}`);
@@ -36,13 +24,15 @@ function sumar() {
 }
 
 function restar() {
+  // Se leen los números de los inputs con la función leerNumero()
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
 
+  // Se comprueba que se han rellenado los inputs, y que son números
   if (Number.isNaN(n1) || Number.isNaN(n2)) {
     mostrar("Escribe los dos números antes de operar.", "danger");
     console.warn("Restar: Falta algún número");
-  } else {
+  } else { // Si no hay error, se realiza la operación, se muestra en el resultado y en la consola.
     const resultado = n1 - n2;
     mostrar(`${n1} - ${n2} = ${resultado}`);
     console.log(`Restar: ${n1} - ${n2} = ${resultado}`);
@@ -50,13 +40,15 @@ function restar() {
 }
 
 function multiplicar() {
+  // Se leen los números de los inputs con la función leerNumero()
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
 
+  // Se comprueba que se han rellenado los inputs, y que son números
   if (Number.isNaN(n1) || Number.isNaN(n2)) {
     mostrar("Escribe los dos números antes de operar.", "danger");
     console.warn("Multiplicar: Falta algún número");
-  } else {
+  } else { // Si no hay error, se realiza la operación, se muestra en el resultado y en la consola.
     const resultado = n1 * n2;
     mostrar(`${n1} * ${n2} = ${resultado}`);
     console.log(`Multiplicar: ${n1} * ${n2} = ${resultado}`);
@@ -64,16 +56,18 @@ function multiplicar() {
 }
 
 function dividir() {
+  // Se leen los números de los inputs con la función leerNumero()
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
 
+  // Se comprueba que se han rellenado los inputs, y que son números
   if (Number.isNaN(n1) || Number.isNaN(n2)) {
     mostrar("Escribe los dos números antes de operar.", "danger");
     console.warn("Dividir: Falta algún número");
-  } else if (n2 == 0) {
+  } else if (n2 === 0) { // Si el divisor es 0, se muestra un error en resultado y consola
     mostrar("Error: No se puede dividir por cero.", "danger");
     console.warn("Dividir: División por cero");
-  } else {
+  } else { // Si no hay error, se realiza la operación, se muestra en el resultado y en la consola.
     const resultado = n1 / n2;
     mostrar(`${n1} / ${n2} = ${resultado}`);
     console.log(`Dividir: ${n1} / ${n2} = ${resultado}`);
@@ -81,13 +75,15 @@ function dividir() {
 }
 
 function potencia() {
+  // Se leen los números de los inputs con la función leerNumero()
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
 
+  // Se comprueba que se han rellenado los inputs, y que son números
   if (Number.isNaN(n1) || Number.isNaN(n2)) {
     mostrar("Escribe los dos números antes de operar.", "danger");
     console.warn("Potencia: Falta algún número");
-  } else {
+  } else { // Si no hay error, se realiza la operación, se muestra en el resultado y en la consola.
     const resultado = n1 ** n2;
     mostrar(`${n1} ** ${n2} = ${resultado}`);
     console.log(`Potencia: ${n1} ** ${n2} = ${resultado}`);
@@ -95,16 +91,18 @@ function potencia() {
 }
 
 function modulo() {
+  // Se leen los números de los inputs con la función leerNumero()
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
 
+  // Se comprueba que se han rellenado los inputs, y que son números
   if (Number.isNaN(n1) || Number.isNaN(n2)) {
     mostrar("Escribe los dos números antes de operar.", "danger");
     console.warn("Módulo: Falta algún número");
-  } else if (n2 == 0) {
+  } else if (n2 === 0) { // Si el divisor es 0, se muestra un error en resultado y consola
     mostrar("Error: No se puede realizar el módulo entre cero.", "danger");
     console.warn("Módulo: Módulo entre cero.");
-  } else {
+  } else { // Si no hay error, se realiza la operación, se muestra en el resultado y en la consola.
     const resultado = n1 % n2;
     mostrar(`${n1} % ${n2} = ${resultado}`);
     console.log(`Módulo: ${n1} % ${n2} = ${resultado}`);
@@ -117,35 +115,43 @@ function modulo() {
 // ============================================================
 
 function cualEsMayor() {
+  // Se leen los números de los inputs con la función leerNumero()
   const n1 = leerNumero("numero1");
   const n2 = leerNumero("numero2");
 
+  // Todo hecho con if else comprobando cada caso posible y control de errores
+  // Se comprueba que se han rellenado los inputs, y que son números
   if (Number.isNaN(n1) || Number.isNaN(n2)) {
     mostrar("Escribe los dos números antes de operar.", "danger");
-    console.warn("¿Cual es mayor?: Falta algún número");
-  } else if (n1>n2){
+    console.warn("¿Cuál es mayor?: Falta algún número");
+  } else if (n1>n2){ // Si n1 es mayor estricto que n2
     mostrar(`${n1} es mayor que ${n2}`);
-  } else if (n2>n1) {
+    console.log(`¿Cuál es mayor?: ${n1} es mayor que ${n2}`);
+  } else if (n2>n1) { // Si n2 es mayor estricto que n1
     mostrar(`${n2} es mayor que ${n1}`);
-  } else {
+    console.log(`¿Cuál es mayor?: ${n2} es mayor que ${n1}`);
+  } else { // Como caso sobrante, n1 y n2 son iguales
     mostrar(`${n1} y ${n2} son iguales`);
+    console.log(`¿Cuál es mayor?: ${n1} y ${n2} son iguales`);
   }
 }
 
 function parOImpar() {
-  // TODO: solo con el número 1. Usa el operador % y el ternario ( condición ? "par" : "impar" ).
-  // TODO: si el número tiene decimales, avisa de que no es ni par ni impar.
+  // Se lee el número uno del input con la función leerNumero()
   const n1 = leerNumero("numero1");
 
+  // Se hace control de errores con if else, de si es número y si es decimal
+  // Se comprueba que se ha rellenado el input, y que es un número
   if(Number.isNaN(n1)) {
     mostrar("Escribe el número 1 antes de operar.", "danger");
     console.warn("¿Par o impar?: Falta número uno");
-  } else if (!Number.isInteger(n1)) {
+  } else if (!Number.isInteger(n1)) { // Si el número es decimal, se especifica lo que es, y que no es ni par ni impar
     mostrar(`${n1} es decimal, es decir, no es par ni impar`, "danger");
     console.warn("¿Par o impar?: Número decimal");
   } else {
-    const condicion = (n1%2==0) ? "par" : "impar";
+    const condicion = (n1%2===0) ? "par" : "impar"; // Operación ternaria y % para saber si es par o impar
     mostrar(`${n1} es ${condicion}`);
+    console.log(`¿Par o impar?: ${n1} es ${condicion}`);
   }
 }
 
@@ -156,59 +162,64 @@ function parOImpar() {
 // ============================================================
 
 function bucleFor() {
+  // Se lee el número uno del input con la función leerNumero()
   const veces = leerNumero("numero1");
   limpiarSalida();
 
-  if(Number.isNaN(veces) || !Number.isInteger(veces) || veces>MAXIMO_REPETICIONES) {
+  // Comprobación de si falta número, si tiene decimales o si se pasa del máximo de repeticiones combinadas con ||
+  if(Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
-    console.warn("Bucle For: Falta número uno");
-  } else {
+    console.warn(`Bucle for: Valor ${veces} no válido`);
+  } else { // Si no, se hace bucle for con anadirLinea() y línea de total
     for(let i=1; i<=veces; i++){
       anadirLinea(`for · repetición ${i} de ${veces}`);
     }
-    anadirLinea(`Total: ${veces} ${(veces>1) ? "repeticiones" : "repetición"}`);
+    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);  
+    console.log(`Bucle for · ${total}`);
   }
-
-  // TODO: si el número falta, tiene decimales o pasa de MAXIMO_REPETICIONES, muestra un error en rojo.
-  // TODO: si no, repite con un for tantas veces como diga «veces». En cada vuelta:
-  //         anadirLinea(`for · repetición ${i} de ${veces}`);
-  //       y cuenta las vueltas en una variable contador.
-  // TODO: al terminar, añade una línea con el total: «Total: 5 repeticiones» o «Total: 1 repetición».
 }
 
 function bucleWhile() {
+  // Se lee el número uno del input con la función leerNumero()
   const veces = leerNumero("numero1");
   limpiarSalida();
 
-  if(Number.isNaN(veces) || !Number.isInteger(veces) || veces>MAXIMO_REPETICIONES) {
+  // Comprobación de si falta número, si tiene decimales o si se pasa del máximo de repeticiones combinadas con ||
+  if(Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
-    console.warn("Bucle While: Falta número uno");
-  } else {
+    console.warn(`Bucle while: Valor ${veces} no válido`);
+  } else { // Si no, se hace bucle while con anadirLinea() y línea de total
     let contador = 1;
     while(contador <= veces) {
       anadirLinea(`while · repetición ${contador} de ${veces}`);
       contador++;
     }
-    anadirLinea(`Total: ${veces} ${(veces>1) ? "repeticiones" : "repetición"}`);
+    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);  
+    console.log(`Bucle while · ${total}`);
   }
 }
 
 function bucleDoWhile() {
-  // TODO: lo mismo que bucleFor(), con un do…while. Pruébalo con 0 y con un negativo: ¿qué pasa?
+  // Se lee el número uno del input con la función leerNumero()
   const veces = leerNumero("numero1");
   limpiarSalida();
 
+  // Comprobación de si falta número, si tiene decimales o si se pasa del máximo de repeticiones combinadas con ||
   if(Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
-    console.warn("Bucle While: Falta número uno");
-  } else {
+    console.warn(`Bucle do...while: Valor ${veces} no válido`);
+  } else { // Si no, se hace bucle do...while con anadirLinea() y línea de total
     let contador = 1;
 
     do {
       anadirLinea(`do...while · repetición ${contador} de ${veces}`);
       contador++;
     } while(contador <= veces);
-    anadirLinea(`Total: ${veces} ${(veces>1) ? "repeticiones" : "repetición"}`);
+    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);  
+    console.log(`Bucle do...while · ${total}`);
   }
 }
 
@@ -218,55 +229,62 @@ function bucleDoWhile() {
 // ============================================================
 
 function badgesFor() {
+  // Se lee el número uno del input con la función leerNumero()
   const veces = leerNumero("numero1");
   limpiarSalida();
 
-  if(Number.isNaN(veces) || !Number.isInteger(veces) || veces>MAXIMO_REPETICIONES) {
+  // Comprobación de si falta número, si tiene decimales o si se pasa del máximo de repeticiones combinadas con ||
+  if(Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
-    console.warn("Bucle For con Badges: Falta número uno");
-  } else {
+    console.warn(`Badges for: Valor ${veces} no válido`);
+  } else { // Si no, se hace bucle for con anadirBadge() y línea de total
     for(let i=1; i<=veces; i++){
-      anadirBadge(i, (i%2==0) ? "primary" : "secondary");
+      anadirBadge(i, (i%2===0) ? "success" : "secondary"); // Color escogido con ternario
     }
-    anadirLinea(`Total: ${veces} ${(veces>1) ? "repeticiones" : "repetición"}`);
+    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);  
+    console.log(`Badges for · ${total}`);
   }
-  // TODO: como bucleFor(), pero cada vuelta añade un badge con el número de la repetición:
-  //         anadirBadge(i, "primary");
-  // TODO: los pares, de un color y los impares, de otro. Elige el color con el operador ternario.
 }
 
 function badgesWhile() {
-  // TODO: lo mismo que badgesFor(), con un while.
+  // Se lee el número uno del input con la función leerNumero()
   const veces = leerNumero("numero1");
   limpiarSalida();
 
-  if(Number.isNaN(veces) || !Number.isInteger(veces) || veces>MAXIMO_REPETICIONES) {
+  // Comprobación de si falta número, si tiene decimales o si se pasa del máximo de repeticiones combinadas con ||
+  if(Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
-    console.warn("Bucle While con Badges: Falta número uno");
-  } else {
+    console.warn(`Badges while: Valor ${veces} no válido`);
+  } else { // Si no, se hace bucle while con anadirBadge() y línea de total
     let contador = 1;
     while(contador <= veces) {
-      anadirBadge(contador, (contador%2==0) ? "primary" : "secondary");
+      anadirBadge(contador, (contador%2===0) ? "success" : "secondary"); // Color escogido con ternario
       contador++;
     }
-    anadirLinea(`Total: ${veces} ${(veces>1) ? "repeticiones" : "repetición"}`);
+    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);  
+    console.log(`Badges while · ${total}`);
   }
 }
 
 function badgesDoWhile() {
-  // TODO: lo mismo que badgesFor(), con un do…while.
+  // Se lee el número uno del input con la función leerNumero()
   const veces = leerNumero("numero1");
   limpiarSalida();
 
-  if(Number.isNaN(veces) || !Number.isInteger(veces) || veces>MAXIMO_REPETICIONES) {
+  // Comprobación de si falta número, si tiene decimales o si se pasa del máximo de repeticiones combinadas con ||
+  if(Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
-    console.warn("Bucle Do...While con Badges: Falta número uno");
-  } else {
+    console.warn(`Badges do...while: Valor ${veces} no válido`);
+  } else { // Si no, se hace bucle do...while con anadirBadge() y línea de total
     let contador = 1;
     do {
-      anadirBadge(contador, (contador%2==0) ? "primary" : "secondary");
+      anadirBadge(contador, (contador%2===0) ? "success" : "secondary"); // Color escogido con ternario
       contador++;
     } while(contador <= veces);
-    anadirLinea(`Total: ${veces} ${(veces>1) ? "repeticiones" : "repetición"}`);
+    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);  
+    console.log(`Badges do...while · ${total}`);
   }
 }

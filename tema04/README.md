@@ -38,7 +38,7 @@ Con el número 1 en 7 pulso el `for` de badges: los pares salen en verde y los i
 
 ## Reflexión
 
-El `for` junta inicio, condición y avance en una línea, así que lo uso cuando sé cuántas vueltas daré. El `while` comprueba la condición antes de cada vuelta, por lo que puede no ejecutarse nunca; lo usaría cuando no sé cuántas vueltas habrá. El `do…while` ejecuta el cuerpo y comprueba después, así que siempre da al menos una vuelta; lo usaría cuando algo debe hacerse una vez como mínimo. El 0 lo demuestra: con 0 (o con un negativo), `for` y `while` dan 0 vueltas, pero `do…while` da 1, porque entra antes de comprobar `contador <= veces`.
+El `for` junta inicio, condición y avance en una línea, así que lo uso cuando sé cuántas vueltas daré. El `while` comprueba la condición antes de cada vuelta, por lo que puede no ejecutarse nunca; lo usaría cuando no sé cuántas vueltas habrá. El `do…while` ejecuta el cuerpo y comprueba después, así que siempre da al menos una vuelta; lo usaría cuando algo debe hacerse una vez como mínimo. El 0 lo demuestra: con 0 (o con un negativo), `for` y `while` dan 0 vueltas, pero `do…while` da 1, porque entra antes de comprobar `contador < veces`.
 
 ## Fuentes
 
@@ -46,4 +46,4 @@ El `for` junta inicio, condición y avance en una línea, así que lo uso cuando
 
 ## Uso de IA
 
-Usé Claude (Anthropic) como ayuda para plantear el carrusel de cards, ajustar las cajas a móvil, igualar la altura de las diferentes cards del carrusel, y a redactar un borrador de este README que posteriormente retoque y adapté.
+Usé Claude (Anthropic) como ayuda para plantear el carrusel de cards, ajustar las cajas a móvil, igualar la altura de las diferentes cards del carrusel, y a redactar un borrador de este README que posteriormente retoqué y adapté. También me hizo una revisión de la práctica para ver errores que tenía.

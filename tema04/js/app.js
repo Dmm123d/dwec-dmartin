@@ -171,11 +171,13 @@ function bucleFor() {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
     console.warn(`Bucle for: Valor ${veces} no válido`);
   } else { // Si no, se hace bucle for con anadirLinea() y línea de total
+    let contador = 0;
     for(let i=1; i<=veces; i++){
-      anadirLinea(`for · repetición ${i} de ${veces}`);
+      contador++;
+      anadirLinea(`for · repetición ${contador} de ${veces}`);
     }
-    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
-    anadirLinea(total);  
+    const total = `Total: ${contador} ${(contador!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);
     console.log(`Bucle for · ${total}`);
   }
 }
@@ -190,13 +192,13 @@ function bucleWhile() {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
     console.warn(`Bucle while: Valor ${veces} no válido`);
   } else { // Si no, se hace bucle while con anadirLinea() y línea de total
-    let contador = 1;
-    while(contador <= veces) {
-      anadirLinea(`while · repetición ${contador} de ${veces}`);
+    let contador = 0;
+    while(contador < veces) {
       contador++;
+      anadirLinea(`while · repetición ${contador} de ${veces}`);
     }
-    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
-    anadirLinea(total);  
+    const total = `Total: ${contador} ${(contador!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);
     console.log(`Bucle while · ${total}`);
   }
 }
@@ -211,14 +213,14 @@ function bucleDoWhile() {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
     console.warn(`Bucle do...while: Valor ${veces} no válido`);
   } else { // Si no, se hace bucle do...while con anadirLinea() y línea de total
-    let contador = 1;
+    let contador = 0;
 
     do {
-      anadirLinea(`do...while · repetición ${contador} de ${veces}`);
       contador++;
-    } while(contador <= veces);
-    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
-    anadirLinea(total);  
+      anadirLinea(`do...while · repetición ${contador} de ${veces}`);
+    } while(contador < veces);
+    const total = `Total: ${contador} ${(contador!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);
     console.log(`Bucle do...while · ${total}`);
   }
 }
@@ -238,11 +240,13 @@ function badgesFor() {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
     console.warn(`Badges for: Valor ${veces} no válido`);
   } else { // Si no, se hace bucle for con anadirBadge() y línea de total
+    let contador = 0;
     for(let i=1; i<=veces; i++){
-      anadirBadge(i, (i%2===0) ? "success" : "secondary"); // Color escogido con ternario
+      contador++;
+      anadirBadge(contador, (contador%2===0) ? "success" : "secondary"); // Color escogido con ternario
     }
-    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
-    anadirLinea(total);  
+    const total = `Total: ${contador} ${(contador!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);
     console.log(`Badges for · ${total}`);
   }
 }
@@ -257,13 +261,13 @@ function badgesWhile() {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
     console.warn(`Badges while: Valor ${veces} no válido`);
   } else { // Si no, se hace bucle while con anadirBadge() y línea de total
-    let contador = 1;
-    while(contador <= veces) {
-      anadirBadge(contador, (contador%2===0) ? "success" : "secondary"); // Color escogido con ternario
+    let contador = 0;
+    while(contador < veces) {
       contador++;
+      anadirBadge(contador, (contador%2===0) ? "success" : "secondary"); // Color escogido con ternario
     }
-    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
-    anadirLinea(total);  
+    const total = `Total: ${contador} ${(contador!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);
     console.log(`Badges while · ${total}`);
   }
 }
@@ -278,13 +282,13 @@ function badgesDoWhile() {
     mostrar("Error: El número uno falta, es decimal o se pasa del máximo de repeticiones (20).", "danger");
     console.warn(`Badges do...while: Valor ${veces} no válido`);
   } else { // Si no, se hace bucle do...while con anadirBadge() y línea de total
-    let contador = 1;
+    let contador = 0;
     do {
-      anadirBadge(contador, (contador%2===0) ? "success" : "secondary"); // Color escogido con ternario
       contador++;
-    } while(contador <= veces);
-    const total = `Total: ${veces} ${(veces!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
-    anadirLinea(total);  
+      anadirBadge(contador, (contador%2===0) ? "success" : "secondary"); // Color escogido con ternario
+    } while(contador < veces);
+    const total = `Total: ${contador} ${(contador!==1) ? "repeticiones" : "repetición"}`; // Total con ternario para comprobar si es singular o plural
+    anadirLinea(total);
     console.log(`Badges do...while · ${total}`);
   }
 }

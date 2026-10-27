@@ -26,6 +26,9 @@ function aplicarCambios() {
     segundo.classList.add("bg-warning-subtle"); // Se añade la clase bg-warning-subtle
     tercero.classList.add("text-danger"); // Se añade la clase text-danger
     console.log("Aplicar Cambios: Cambios Aplicados."); // Se deja rastro en consola
+  } else {
+    // Si no hay párrafos a los que aplicar cambios, se deja rastro en consola
+    console.error("Aplicar Cambios: No hay párrafos a los que aplicar cambios.");
   }
 }
 
@@ -97,7 +100,10 @@ function cambiarTexto() {
   const error = document.getElementById("error4"); // Aviso de error
   const primerParrafo = document.querySelectorAll("#contenido p")[0]; // Primer párrafo
 
-  if (textoLimpio === ""){
+  if (primerParrafo === undefined) {
+    // Si el primer párrafo no existe, se avisa en consola
+    console.warn("Cambiar Texto: No hay párrafo al que cambiar texto");
+  } else if (textoLimpio === ""){
     // Si el texto está vacío, se muestra el aviso de error y aviso en consola
     error.classList.remove("d-none");
     console.warn("Cambiar Texto: No se ha introducido texto en input.");
@@ -115,7 +121,10 @@ function cambiarConHtml() {
   const error = document.getElementById("error4"); // Aviso de error
   const primerParrafo = document.querySelectorAll("#contenido p")[0]; // Primer párrafo
 
-  if (textoLimpio === ""){
+  if (primerParrafo === undefined) {
+    // Si el primer párrafo no existe, se avisa en consola
+    console.warn("Cambiar HTML: No hay párrafo al que cambiar texto.");
+  } else if (textoLimpio === ""){
     // Si el texto está vacío, se muestra el aviso de error y aviso en consola
     error.classList.remove("d-none");
     console.warn("Cambiar HTML: No se ha introducido texto en input.");

@@ -35,10 +35,39 @@ function comoTexto(lista) {
 // TODO: añádele el método presentarse(), que devuelve una frase con this.nombre, this.apellidos, this.edad y this.curso.
 //       Por ejemplo: «Soy [nombre] [apellidos], tengo [edad] años y estudio [curso].»
 const estudiante = {
-
+  nombre: "David",
+  apellidos: "Martín Martí",
+  edad: 25,
+  curso: "2ºDAW",
+  presentarse: function () {
+    return `Soy ${this.nombre} ${this.apellidos}, tengo ${this.edad} años y estudio ${this.curso}`;
+  }
 };
 
 function verFicha() {
+  const salida1 = document.getElementById("salida1");
+  salida1.textContent = "";
+
+  const claves = ["nombre","apellidos","edad","curso"];
+
+  const lista = document.createElement("ul");
+  lista.setAttribute("class","list-group");
+
+  claves.forEach(function (clave) {
+    const elementoLista = document.createElement("li");
+    elementoLista.setAttribute("class","list-group-item");
+    elementoLista.textContent = `${clave.charAt(0).toUpperCase() + clave.slice(1)}: ${estudiante[clave]}`;
+    lista.append(elementoLista);
+  });
+
+  const parrafo = document.createElement("p");
+  parrafo.setAttribute("class","mt-2 mx-auto");
+  parrafo.textContent = estudiante.presentarse();
+  lista.append(parrafo);
+  salida1.append(lista);
+
+  console.log(estudiante);
+
   // TODO: vacía #salida1 (textContent = "").
   // TODO: crea un <ul class="list-group"> con un <li class="list-group-item"> por propiedad: «nombre: ...», «edad: ...».
   //       Pista: guarda las claves en un array, ["nombre", "apellidos", "edad", "curso"], recórrelo con forEach
@@ -48,10 +77,16 @@ function verFicha() {
 }
 
 function cumplirAnios() {
+  estudiante.edad += 1;
+  verFicha();
+  console.log(`Cumplir Años: ${estudiante.edad} recien cumplidos.`);
   // TODO: suma 1 a la edad del estudiante y vuelve a pintar la ficha (llama a verFicha()).
 }
 
 function quitarCurso() {
+  delete estudiante.curso;
+  verFicha();
+  console.log("Quitar Curso: Curso borrado.");
   // TODO: borra la propiedad curso con delete y vuelve a pintar la ficha.
   //       Fíjate en lo que sale ahora en el curso y explícalo en el README.
 }
@@ -101,11 +136,27 @@ function anadirColor() {
 }
 
 function quitarUltimo() {
+  if (colores.length === 0) {
+    avisar2("La lista está vacía.");
+  } else {
+    const ultimo = colores.pop();
+    document.querySelector("#aviso2").classList.add("d-none");
+    mostrarColores();
+    console.log(`Quitar Último: Ha salido el color ${ultimo}.`);
+  }
   // TODO: si la lista está vacía, avisa con avisar2() y no hagas nada más.
   // TODO: si no, saca el último con pop(), vuelve a pintar la lista y di en la consola qué color ha salido.
 }
 
 function quitarPrimero() {
+  if (colores.length === 0) {
+    avisar2("La lista está vacía.");
+  } else {
+    const primero = colores.shift();
+    document.querySelector("#aviso2").classList.add("d-none");
+    mostrarColores();
+    console.log(`Quitar Primero: Ha salido el color ${primero}.`);
+  }
   // TODO: lo mismo que quitarUltimo(), pero sacando el primero con shift().
 }
 
@@ -147,13 +198,23 @@ function pintarProductos(lista) {
     fila.append(nombre, categoria, precio);
     cuerpo.append(fila);
   });
+  console.log("Pintar Productos: Tabla de productos creada.");
 }
 
 function mostrarProductos() {
+  pintarProductos(productos);
+  document.querySelector("#mensaje3").textContent = `Hay ${productos.length} productos.`;
+  console.log("Mostrar Productos: Productos mostrados.");
   // TODO: pinta todos los productos con pintarProductos() y escribe en #mensaje3 cuántos hay.
 }
 
 function ordenarPorPrecio() {
+  const copia = [...productos].sort(function(a, b) {
+    return a.precio - b.precio;
+  });
+  pintarProductos(copia);
+  document.querySelector("#mensaje3").textContent = "Está ordenado de más barato a más caro.";
+  console.log("Ordenar Por Precio: Precio ordenado de barato a caro.");
   // TODO: haz una copia del array con [...productos] y ordénala con sort() de más barato a más caro.
   //       sort necesita una función de comparación: function (a, b) { return ... }.
   //       ¿Por qué una copia? Explícalo en el README.
@@ -161,10 +222,22 @@ function ordenarPorPrecio() {
 }
 
 function filtrarCaros() {
+  const copia = [...productos].filter(function (producto) {
+    return producto >= 50;
+  });
+  document.querySelector("#mensaje3").textContent = "Está filtrado mostrando los mayores de 50€.";
+  console.log("Filtrar Caros: Productos filtrados a más de 50€.");
+
   // TODO: con filter(), los productos de más de 50 €. Píntalos y escribe en #mensaje3 cuántos son.
 }
 
 function buscarProducto() {
+  const casilla = document.querySelector("#buscarProducto");
+  const producto = casilla.value.trim().toLowerCase();
+
+  if (producto === "") {
+    document.querySelector("#mensaje3").textContent = "Debe introducir un producto para buscar.";
+  }
   // TODO: lee #buscarProducto (value, trim y toLowerCase). Si está vacío, avisa en #mensaje3.
   // TODO: con find(), el primer producto cuyo nombre en minúsculas contenga ese texto (includes).
   // TODO: find devuelve undefined si no encuentra nada: en ese caso, dilo en #mensaje3 y vacía la tabla.

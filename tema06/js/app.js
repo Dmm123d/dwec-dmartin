@@ -125,6 +125,7 @@ function anadirColor() {
 
   if (color === "") {
     avisar2("Escribe un color antes de pulsar «Añadir».");
+    console.warn("Añadir Color: Escribe color antes de pulsar «Añadir».");
     return;
   }
 
@@ -132,12 +133,13 @@ function anadirColor() {
   casilla.value = "";
   document.querySelector("#aviso2").classList.add("d-none");
   mostrarColores();
-  console.log("Ejercicio 2: push →", comoTexto(colores));
+  console.log("Añadir Color: push →", comoTexto(colores));
 }
 
 function quitarUltimo() {
   if (colores.length === 0) {
     avisar2("La lista está vacía.");
+    console.warn("Quitar Último: La lista está vacía.");
   } else {
     const ultimo = colores.pop();
     document.querySelector("#aviso2").classList.add("d-none");
@@ -151,6 +153,7 @@ function quitarUltimo() {
 function quitarPrimero() {
   if (colores.length === 0) {
     avisar2("La lista está vacía.");
+    console.warn("Quitar Primero: La lista está vacía.");
   } else {
     const primero = colores.shift();
     document.querySelector("#aviso2").classList.add("d-none");
@@ -223,20 +226,31 @@ function ordenarPorPrecio() {
 
 function filtrarCaros() {
   const copia = [...productos].filter(function (producto) {
-    return producto >= 50;
+    return producto.precio >= 50;
   });
+  pintarProductos(copia);
   document.querySelector("#mensaje3").textContent = "Está filtrado mostrando los mayores de 50€.";
   console.log("Filtrar Caros: Productos filtrados a más de 50€.");
-
   // TODO: con filter(), los productos de más de 50 €. Píntalos y escribe en #mensaje3 cuántos son.
 }
 
 function buscarProducto() {
   const casilla = document.querySelector("#buscarProducto");
-  const producto = casilla.value.trim().toLowerCase();
+  const productoNombre = casilla.value.trim().toLowerCase();
 
   if (producto === "") {
     document.querySelector("#mensaje3").textContent = "Debe introducir un producto para buscar.";
+  } else {
+    const encontrado = [...productos].find(function (producto) {
+      return producto.nombre.includes(productoNombre);
+    });
+    if (encontrado === undefined) {
+      document.querySelector("#mensaje3").textContent = "El producto buscado no existe.";
+      console.warn("Buscar Producto: Producto buscado no existe.");
+    } else {
+      pintarProductos(encontrado);
+      console.log("Buscar Producto: Producto encontrado.");
+    }
   }
   // TODO: lee #buscarProducto (value, trim y toLowerCase). Si está vacío, avisa en #mensaje3.
   // TODO: con find(), el primer producto cuyo nombre en minúsculas contenga ese texto (includes).
@@ -253,7 +267,25 @@ mostrarProductos();   // la tabla completa nada más cargar
 
 const alumno = {
   nombre: "David Martín Martí",
-  notas: []
+  notas: [],
+  anadirNota: function (nota) {
+    if (Number.isNaN(nota) || nota < 0 || nota > 10) {
+      return false;
+    } else {
+      this.notas.push(nota);
+      return true;
+    }
+  },
+  media: function () {
+    if (this.notas.length === 0){
+      return 0;
+    } else {
+      const media = (this.notas.reduce(function (total, nota) {
+        return total + nota;
+      }, 0)) / this.notas.length;
+      return media;
+    }
+  }
   // TODO: método anadirNota(nota): si la nota no es un número (Number.isNaN) o no está entre 0 y 10, devuelve false;
   //       si es válida, la añade a this.notas con push y devuelve true.
   // TODO: método media(): si no hay notas devuelve 0; si hay, la suma (con reduce) dividida entre el número de notas.
@@ -261,12 +293,59 @@ const alumno = {
 };
 
 function mostrarNotas() {
+  const notasCaja = document.getElementById("notas");
+  notasCaja.textContent = "";
+  alumno.notas.forEach(function (nota) {
+    const badge = document.createElement("span");
+    badge.setAttribute("class","badge");
+    if (nota < 5) {
+      badge.classList.add("text-bg-danger");
+    } else if (nota >= 5) {
+      badge.classList.add("text-bg-success");
+    }
+    badge.textContent = nota;
+    notasCaja.append(badge);
+  });
+
+  const media = document.getElementById("media");
+  if (alumno.media() === 0) {
+    media.textContent = "Todavía no hay notas.";
+  } else {
+    media.textContent = `Media de ${alumno.notas.length} notas: ${alumno.media().toFixed(2)}`;
+  }
+  console.log("Mostrar Notas: Notas y su media mostradas.");
   // TODO: vacía #notas y pon un badge (<span class="badge">) por nota: verde (text-bg-success) si es de 5 o más,
   //       rojo (text-bg-danger) si no.
   // TODO: en #media, «Media de N notas: X» con dos decimales (toFixed(2)), o «Todavía no hay notas.».
 }
 
 function anadirNota() {
+  const notaCasilla = document.getElementById("nota");
+  const error = document.getElementById("error4");
+
+  const notaValor = notaCasilla.value.trim();
+
+  if (notaValor === "") {
+    error.textContent = "Introduzca una nota entre 0 y 10.";
+    error.classList.remove("d-none");
+    console.warn("Añadir Nota: Casilla vacía.");
+    return;
+  }
+
+  const nota = Number(notaValor);
+  const valida = alumno.anadirNota(nota);
+
+  if (valida === false) {
+    error.textContent = "La nota debe ser un número entre 0 y 10.";
+    error.classList.remove("d-none");
+    console.log(`Añadir Nota: Nota ${notaValor} no válida.`);
+    return;
+  }
+  error.textContent = "";
+  error.classList.add("d-none");
+  notaCasilla.value = "";
+  console.log(`Añadir Nota: Nota ${nota} guardada.`);
+  mostrarNotas();
   // TODO: si #nota está vacía, muestra un error en #error4 (quítale "d-none").
   //       Ojo: Number("") vale 0, así que esta comprobación va antes de convertir.
   // TODO: convierte el valor con Number() y llama a alumno.anadirNota(). Si devuelve false, muestra el error.
@@ -274,6 +353,8 @@ function anadirNota() {
 }
 
 function borrarNotas() {
+  alumno.notas.length = 0;
+  mostrarNotas();
   // TODO: deja alumno.notas vacío y vuelve a pintar.
 }
 

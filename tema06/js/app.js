@@ -368,19 +368,45 @@ mostrarNotas();
 const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function verDobles() {
+  const dobles = numeros.map(function (n) {
+    return n * 2;
+  });
+  document.querySelector("#salida5").textContent = `map → ${comoTexto(dobles)}`;
+  console.log(`map → ${comoTexto(dobles)}`);
   // TODO: con map(), un array nuevo con el doble de cada número.
   // TODO: escribe en #salida5 el resultado y, debajo, numeros (para que se vea que no ha cambiado).
 }
 
 function verPares() {
+  const pares = numeros.filter(function (n) {
+    return n % 2 === 0;
+  });
+  document.querySelector("#salida5").textContent = `filter → ${comoTexto(pares)}`;
+  console.log(`filter → ${comoTexto(pares)}`);
   // TODO: con filter(), los números pares (n % 2 === 0). Escríbelos en #salida5 como en verDobles().
 }
 
 function verSuma() {
+  const suma = numeros.reduce(function (total,n) {
+    return total + n;
+  }, 0);
+  document.querySelector("#salida5").textContent = `reduce → ${suma}`;
+  console.log(`filter → ${comoTexto(pares)}`);
   // TODO: con reduce(), la suma de todos los números (empieza en 0). Escríbela en #salida5.
 }
 
 function verCadena() {
+  const salida = document.getElementById("salida5");
+  const pares = numeros.filter(function (n) {
+    return n % 2 === 0;
+  });
+  const dobles = pares.map(function (n) {
+    return n * 2;
+  });
+  const suma = dobles.reduce(function (total,n) {
+    return total + n;
+  }, 0);
+  salida.innerHTML = `filter → ${comoTexto(pares)}<br>map → ${comoTexto(dobles)}<br>reduce → ${suma}`;
   // TODO: los tres seguidos: los pares, después sus dobles y al final la suma de esos dobles.
   //       Escribe en #salida5 una línea por paso.
 }
@@ -394,24 +420,57 @@ const ciudadesOriginal = ["Granada", "Sevilla", "Málaga", "Córdoba", "Jaén", 
 let ciudades = [...ciudadesOriginal];   // una copia: splice cambia ciudades y así podemos restaurarla
 
 function mostrarCiudades() {
+  const ciudadesCaja = document.querySelector("#ciudades");
+  ciudadesCaja.textContent = "";
+  ciudades.forEach(function (ciudad, pos) {
+    const badge = document.createElement("span");
+    badge.classList.add("badge","text-dark","bg-white","border","m-1");
+    badge.textContent = `${pos} · ${ciudad}`;
+    ciudadesCaja.append(badge);
+  });
   // TODO: vacía #ciudades y pon un badge por ciudad con su posición: «0 · Granada», «1 · Sevilla»...
   //       Pista: forEach le pasa a tu función dos datos: function (ciudad, posicion) { ... }.
 }
 
 function verSlice() {
+  const arraySlice = ciudades.slice(2,5);
+  const salida = document.querySelector("#salida6");
+  salida.innerHTML = `slice(2,5) devuelve ${comoTexto(arraySlice)}<br>ciudades ahora tiene ${ciudades.length} elementos: no ha cambiado`;
   // TODO: guarda ciudades.slice(2, 5) y escribe en #salida6 qué devuelve y cuántas ciudades siguen en el array.
 }
 
 function hacerSplice() {
+  const arraySplice = ciudades.splice(2,2);
+  const salida = document.querySelector("#salida6");
+
+  if (ciudades.length < 3) {
+    salida.textContent = "Quedan menos de 3 ciudades, es necesario restaurar.";
+  } else {
+    salida.innerHTML = `splice(2,2) devuelve ${comoTexto(arraySplice)}<br>ciudades ahora tiene ${ciudades.length} elementos: sí ha cambiado`;
+    mostrarCiudades();
+  }
   // TODO: si quedan menos de 3 ciudades, avisa en #salida6 de que hay que restaurar y no hagas nada más.
   // TODO: si no, ciudades.splice(2, 2): escribe en #salida6 qué devuelve y cuántas quedan, y vuelve a pintar.
 }
 
 function restaurarCiudades() {
+  ciudades = [...ciudadesOriginal];
+  mostrarCiudades();
   // TODO: vuelve a copiar ciudadesOriginal en ciudades y pinta.
 }
 
 function buscarCiudad() {
+  const buscarCiudad = document.querySelector("#buscarCiudad");
+  const salida = document.querySelector("#salida6");
+  const textoCiudad = buscarCiudad.value.trim();
+
+  if (textoCiudad === "" || ciudades.indexOf(textoCiudad) === -1) {
+    salida.textContent = "Debe introducir una ciudad existente en la casilla.";
+  } else {
+    const incluido = ciudades.includes(textoCiudad);
+    const indice = ciudades.indexOf(textoCiudad);
+    salida.innerHTML = `includes() devuelve ${incluido}<br>indexOf() devuelve ${indice}`;
+  }
   // TODO: lee #buscarCiudad (value y trim). Si está vacío, avisa.
   // TODO: escribe en #salida6 lo que dan includes() e indexOf() con ese nombre. Si no está, indexOf da -1.
 }

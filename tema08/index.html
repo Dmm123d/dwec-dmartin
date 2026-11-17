@@ -55,7 +55,7 @@
               <fieldset class="mb-4">
                 <legend class="fs-5 border-bottom pb-1">Tus datos</legend>
 
-                <!-- EL MODELO: un campo completo, con sus atributos de validación (ejercicio 2) -->
+                <!-- Nombre y Apellidos -->
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre y apellidos *</label>
                   <input type="text" id="nombre" name="nombre" class="form-control" autocomplete="name"
@@ -64,8 +64,80 @@
                   <div class="invalid-feedback"></div>
                 </div>
 
+                <!-- Correo electrónico -->
+                <div class="mb-3">
+                  <label for="email" class="form-label">Correo electrónico *</label>
+                  <input type="email" id="email" name="email" class="form-control" autocomplete="email"
+                         required>
+                  <div class="invalid-feedback"></div>
+                </div>
+
+                <!-- Repite el correo -->
+                <div class="mb-3">
+                  <label for="email2" class="form-label">Repite el correo *</label>
+                  <input type="email" id="email2" class="form-control" autocomplete="email"
+                         required>
+                  <div class="invalid-feedback"></div>
+                </div>
+
+                <!-- Teléfono -->
+                <div class="mb-3">
+                  <label for="telefono" class="form-label">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono" class="form-control" autocomplete="tel"
+                         pattern="^\d{9}$" required>
+                  <div class="invalid-feedback"></div>
+                </div>
+
+                <!-- Fecha de Nacimiento -->
+                <div class="mb-3">
+                  <label for="nacimiento" class="form-label">Fecha de Nacimiento *</label>
+                  <input type="date" id="nacimiento" name="nacimiento" class="form-control" autocomplete="bday"
+                         min="1940-01-01" max="2010-12-31" required>
+                  <div class="invalid-feedback"></div>
+                </div>
+
                 <!-- TODO: correo (email), «Repite el correo» (email2, SIN name), teléfono (telefono)
                            y fecha de nacimiento (nacimiento). Dos por fila con la rejilla de Bootstrap. -->
+
+              </fieldset>
+
+              <fieldset class="mb-4">
+                <legend class="fs-5 border-bottom pb-1">Tu inscripción</legend>
+
+                <!-- Modalidad -->
+                <div class="mb-3">
+                  <label for="modalidad" class="form-label">Modalidad</label>
+                  <input type="select" id="modalidad" name="modalidad" class="form-control" required>
+                  <div class="invalid-feedback"></div>
+                </div>
+
+                <!-- Taller de la tarde -->
+                <div class="mb-3">
+                  <p class="form-label">Taller de la tarde *</p>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="taller" id="html" value="html_accesible" required>
+                    <label class="form-check-label" for="html">
+                      HTML accesible
+                    </label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="taller" id="js" value="javascript_moderno" required>
+                    <label class="form-check-label" for="js">
+                      JavaScript moderno
+                    </label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="taller" id="bootstrap" value="bootstrap_a_fondo" required>
+                    <label class="form-check-label" for="bootstrap">
+                      Bootstrap a fondo
+                    </label>
+                  </div>
+
+
+                </div>
 
               </fieldset>
 
